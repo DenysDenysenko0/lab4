@@ -1,4 +1,4 @@
-# Текст який складається з 53 слів та 21-го розділового знаку
+ # Текст який складається з 53 слів та 21-го розділового знаку
 ryadok =  ( "Черепаха - аха-аха "
             "У воді сиділа-діла, "
             "Черепаха - аха-аха "
@@ -21,6 +21,7 @@ ryadok =  ( "Черепаха - аха-аха "
             "То злетить і черепаха! "
             "Аха-аха-аха... ")
 
+
 # Функція Денисенка Дениса first_change яка виконує три зміни рядка:
 # 1 Замінює всі літери "Ч" на "4"
 # 2 Робить першу літеру кожного слова великою
@@ -36,9 +37,32 @@ def first_change(input):
     import random
     symbols = ["/", "+", "*"]
     input = input.replace("-", random.choice(symbols))
-    
+
     return input
 
 change_string = first_change(ryadok)
 
-print("Result:", change_string)
+print("Result Denusenko:", change_string)
+
+
+# Функція Кубуши Олексія, яка виконує три зміни рядка:
+# 1. Замінює всі літери 'а' на ''
+# 2. Робить кожне 3-тє слово великими літерами
+# 3. Кожне 5-те слово стає цифрами 12345
+def second_change(input_text):
+    # 1. Видалення всіх літер 'а' (як великих, так і малих)
+    input_text = input_text.replace('а', '').replace('А', '')
+
+    # 2. Робимо кожне 3-тє слово великими літерами
+    words = input_text.split()
+    words = [word.upper() if (i + 1) % 3 == 0 else word for i, word in enumerate(words)]
+
+    # 3. Кожне 5-те слово стає цифрами '12345'
+    words = [word if (i + 1) % 5 != 0 else '12345' for i, word in enumerate(words)]
+
+    return ' '.join(words)
+
+# Застосування функції
+change_string = second_change(ryadok)
+
+print("Result Kubusha:", change_string)
