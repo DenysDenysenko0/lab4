@@ -42,7 +42,7 @@ def first_change(input):
 
 change_string = first_change(ryadok)
 
-print("Result Denusenko:", change_string)
+print("Result Denysenko:", change_string)
 
 
 # Функція Кубуши Олексія, яка виконує три зміни рядка:
