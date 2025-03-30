@@ -1,4 +1,4 @@
- # Текст який складається з 53 слів та 21-го розділового знаку
+# Текст який складається з 53 слів та 21-го розділового знаку
 ryadok =  ( "Черепаха - аха-аха "
             "У воді сиділа-діла, "
             "Черепаха - аха-аха "
@@ -48,7 +48,7 @@ print("Result Denysenko:", change_string)
 # Функція Кубуши Олексія, яка виконує три зміни рядка:
 # 1. Замінює всі літери 'а' на ''
 # 2. Робить кожне 3-тє слово великими літерами
-# 3. Кожне 5-те слово стає цифрами 12345
+# 3. Кожне 5-те слово стає цифрою 12345
 def second_change(input_text):
     # 1. Видалення всіх літер 'а' (як великих, так і малих)
     input_text = input_text.replace('а', '').replace('А', '')
@@ -57,7 +57,7 @@ def second_change(input_text):
     words = input_text.split()
     words = [word.upper() if (i + 1) % 3 == 0 else word for i, word in enumerate(words)]
 
-    # 3. Кожне 5-те слово стає цифрами '12345'
+    # 3. Кожне 5-те слово стає цифрою '12345'
     words = [word if (i + 1) % 5 != 0 else '12345' for i, word in enumerate(words)]
 
     return ' '.join(words)
@@ -66,3 +66,25 @@ def second_change(input_text):
 change_string = second_change(ryadok)
 
 print("Result Kubusha:", change_string)
+
+# Функція Бобирєвой Тетяни, яка виконує три зміни рядка:
+# 1. Замінює всі літери 'x' та 'Х' на '*'
+# 2. Кожне 4 слово замінюється на слово 'Тетяна'
+# 3. Всі літери стають великими
+def third_change(input_text):
+    # 1. Замінюємо всі літери 'х' на '*'
+    input_text = input_text.replace('х', '*').replace('Х', '*')
+
+    # 2. Розбиваємо текст на слова. Кожне 4-те слово замінюємо на "Тетяна"
+    words = input_text.split()
+    words = ["Тетяна" if (i + 1) % 4 == 0 else word for i, word in enumerate(words)]
+
+    # 4. Робимо всі літери великими
+    result = ' '.join(words).upper()
+
+    return result
+
+# Використання функції
+test_string = third_change(ryadok)
+
+print("Result Bobyrieva:", test_string)
